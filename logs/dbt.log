@@ -1,0 +1,27 @@
+[0m21:29:02.796315 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E313F06660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3165EFD90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3165EF890>]}
+
+
+============================== 21:29:03.016710 | 2daf9440-d7ae-4157-b4b0-8c2e744a0420 ==============================
+[0m21:29:03.016710 [info ] [MainThread]: Running with dbt=1.12.5
+[0m21:29:03.017766 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Yezid\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init marketing_data_platform --skip-profile-setup', 'log_path': 'logs'}
+[0m21:29:03.445936 [debug] [MainThread]: Starter project path: C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\dbt\include\starter_project
+[0m21:29:03.481071 [info ] [MainThread]: Your new dbt project "marketing_data_platform" was created!
+Initialized new project in C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform\marketing_data_platform
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:29:03.483243 [debug] [MainThread]: Command `dbt init` succeeded at 21:29:03.482852 after 0.94 seconds
+[0m21:29:03.483842 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317AE3950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317ABD130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317AD6360>]}
+[0m21:29:03.484427 [debug] [MainThread]: Flushing usage events
+[0m21:29:04.547543 [debug] [MainThread]: An error was encountered while trying to flush usage events
