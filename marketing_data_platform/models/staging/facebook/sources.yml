@@ -23,12 +23,12 @@ sources:
         config:
           event_time: ad_group_updated_at
 
-      - name: facebook_ad
+      - name: facebook_ads
         description: Facebook ads (creatives). One row per ad.
         config:
           event_time: ad_updated_at
 
-      - name: facebook_ads_stat
+      - name: facebook_ads_stats
         description: Daily ad performance (spend, impressions, clicks). One row per ad per day.
         config:
           event_time: ad_date
