@@ -1,0 +1,21 @@
+version: 2
+
+models:   
+  - name: stg_facebook_campaign
+    description: >
+      Facebook campaigns. One row per campaign. Provides the campaign name
+      used for reporting.
+    columns:
+      - name: campaign_id
+        description: Facebook campaign ID. Primary key.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_name
+        description: Campaign name as set in Facebook. Follows a structured naming convention but is treated as a label only.
+        data_tests:
+          - not_null
+
+      - name: campaign_updated_at
+        description: Last time the campaign was changed in Facebook (UTC).

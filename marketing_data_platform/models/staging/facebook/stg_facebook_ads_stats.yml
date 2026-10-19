@@ -1,0 +1,51 @@
+version: 2
+
+models: 
+  - name: stg_facebook_ads_stat
+    description: >
+      Daily Facebook ad performance. One row per ad per day.
+      Impressions and clicks are cast from strings; unparseable values become null.
+    columns:
+      - name: ad_id
+        description: Facebook ad ID (string to avoid precision loss).
+        data_tests:
+          - not_null
+
+      - name: account_id
+        description: Facebook ad account ID. Joins to stg_facebook_account for currency.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_facebook_account')
+                field: account_id
+
+      - name: report_date
+        description: Date the performance was recorded.
+        data_tests:
+          - not_null
+
+      - name: spend
+        description: Amount spent that day, in the account's currency (see stg_facebook_account.ad_currency_code).
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+
+      - name: impressions
+        description: Number of times the ad was shown.
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+
+      - name: clicks
+        description: Number of clicks on the ad.
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true

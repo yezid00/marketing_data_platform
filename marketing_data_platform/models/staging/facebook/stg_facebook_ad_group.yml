@@ -1,0 +1,21 @@
+version: 2
+
+models:   
+  - name: stg_facebook_ad_group
+    description: >
+      Facebook ad groups. One row per ad group. Holds the targeting label
+      for each group of ads.
+    columns:
+      - name: ad_group_id
+        description: Facebook ad group ID. Primary key.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: ad_group_name
+        description: Ad group name as set in Facebook. Encodes targeting details but is treated as a label only.
+        data_tests:
+          - not_null
+
+      - name: ad_group_updated_at
+        description: Last time the ad group was changed in Facebook (UTC).
