@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ad_group
+    description: >
+      Snapchat ad groups (ad squads). One row per ad group, to be confirmed
+      by a uniqueness check. Links each ad group to its campaign.
+    columns:
+      - name: ad_group_id
+        description: Snapchat ad group ID (UUID). Primary key. Joins to stg_snapchat_ad_history.
+      - name: campaign_id
+        description: Campaign the ad group belongs to. Joins to stg_snapchat_ads_campaign.
+      - name: ad_group_name
+        description: Ad group name as set in Snapchat. Encodes device, country, year, objective, targeting type, age band and an ID suffix, but is treated as a label only.
+      - name: ad_group_updated_at
+        description: Last time the ad group was updated, per the source (UTC).

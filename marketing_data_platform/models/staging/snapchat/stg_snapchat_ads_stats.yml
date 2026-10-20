@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_stats
+    description: >
+      Daily Snapchat ad performance. One row per ad per country per day.
+      Clicks stored as the text 'null' in the source are converted to real nulls.
+    columns:
+      - name: ad_id
+        description: Snapchat ad ID (UUID). Joins to stg_snapchat_ad_history.
+      - name: report_date
+        description: Date the performance was recorded.
+      - name: currency_code
+        description: Currency the spend is reported in.
+      - name: country_code
+        description: Lowercase country code the performance is attributed to.
+      - name: spend
+        description: Amount spent that day, in currency_code.
+      - name: impressions
+        description: Number of times the ad was shown.
+      - name: clicks
+        description: Number of clicks. Null where the source reported 'null'.
