@@ -1,0 +1,34 @@
+sources:
+  - name: facebook_ads
+    description: Raw Facebook Ads data loaded as received. Static files, not a live feed.
+    database: bronze_staging
+    schema: marketing_ads_staging
+    config:
+      meta:
+        owner: "@cde_engineer"
+
+    tables:
+      - name: facebook_account
+        description: Facebook ad accounts.
+        config:
+          event_time: account_updated_at
+
+      - name: facebook_campaign
+        description: Facebook campaigns. One row per campaign.
+        config:
+          event_time: campaign_updated_at
+
+      - name: facebook_ad_group
+        description: Facebook ad groups. One row per ad group.
+        config:
+          event_time: ad_group_updated_at
+
+      - name: facebook_ads
+        description: Facebook ads (creatives). One row per ad.
+        config:
+          event_time: ad_updated_at
+
+      - name: facebook_ads_stats
+        description: Daily ad performance (spend, impressions, clicks). One row per ad per day.
+        config:
+          event_time: ad_date
