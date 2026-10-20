@@ -45,4 +45,28 @@ sources:
           - name: ad_name
             description: Ad name as set in Snapchat.
           - name: ad_detail_updated_at
-            description: When this version of the
+            description: When this version of the ad was last updated.
+
+      - name: snapchat_ad_group
+        description: Snapchat ad groups (ad squads). Links ads to campaigns.
+        columns:
+          - name: _surrogate_key
+            description: Key added at load time. Not used downstream.
+          - name: ad_group_id
+            description: Snapchat ad group ID.
+          - name: campaign_id
+            description: Campaign the ad group belongs to.
+          - name: ad_group_name
+            description: Ad group name as set in Snapchat.
+          - name: ad_group_updated_at
+            description: When the ad group was last updated.
+
+      - name: snapchat_ads_campaign
+        description: Snapchat campaigns. Provides the campaign name and the account.
+        columns:
+          - name: campaign_id
+            description: Snapchat campaign ID.
+          - name: account_id
+            description: Account that owns the campaign.
+          - name: campaign_name
+            description: Campaign name as set in Snapchat.
