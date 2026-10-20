@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: snapchat_ads
+    description: Raw Snapchat Ads data loaded as received. Static files, not a live feed.
+    database: bronze_staging
+    schema: marketing_ads_staging
+    config:
+      meta:
+        owner: "@cde_engineer"
+
+    tables:
+      - name: snapchat_ads_stats
+        description: >
+          Daily Snapchat ad performance (spend, impressions, clicks).
+          Grain still to be confirmed (ad, day, country).
+          Links to snapchat_ad_history through ad_detail_id.
+        columns:
+          - name: ad_detail_id
+            description: ID of the ad. Assumed to match snapchat_ad_history.ad_id.
+          - name: ad_currency_code
+            description: Currency the spend is reported in.
+          - name: ad_country
+            description: Country the performance is attributed to.
+          - name: ad_spend
+            description: Amount spent, in ad_currency_code.
+          - name: ad_impressions
+            description: Number of times the ad was shown.
+          - name: ad_clicks
+            description: Number of clicks. Stored as text and may contain the string 'null'.
+          - name: ad_date
+            description: Date the performance was recorded.
+          - name: data_src
+            description: Source tag added at load time. Meaning to be confirmed.
+
+      - name: snapchat_ad_history
+        description: >
+          Snapchat ads (creatives) with an update timestamp.
+          May hold several versions per ad, so check before joining.
+        columns:
+          - name: ad_id
+            description: Snapchat ad ID.
+          - name: ad_group_id
+            description: Ad group (ad squad) the ad belongs to.
+          - name: ad_name
+            description: Ad name as set in Snapchat.
+          - name: ad_detail_updated_at
+            description: When this version of the
