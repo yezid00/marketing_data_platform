@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_campaign
+    description: >
+      Snapchat campaigns. One row per campaign, to be confirmed by a uniqueness
+      check. Provides the campaign name and the owning account.
+    columns:
+      - name: campaign_id
+        description: Snapchat campaign ID (UUID). Primary key. Joins to stg_snapchat_ad_group.
+      - name: account_id
+        description: Snapchat account that owns the campaign (UUID). No Snapchat account table exists in the source.
+      - name: campaign_name
+        description: Campaign name as set in Snapchat. Encodes year, region, objective, theme and a campaign number, but is treated as a label only.

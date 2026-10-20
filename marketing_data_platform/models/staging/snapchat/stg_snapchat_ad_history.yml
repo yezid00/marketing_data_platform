@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ad_history
+    description: >
+      Snapchat ads (creatives). One row per ad, confirmed by a uniqueness check.
+      Links each ad to its ad group.
+    columns:
+      - name: ad_id
+        description: Snapchat ad ID (UUID). Primary key. Joins to stg_snapchat_ads_stats.
+      - name: ad_group_id
+        description: Ad group (ad squad) the ad belongs to. Joins to stg_snapchat_adgroup.
+      - name: ad_name
+        description: Ad name as set in Snapchat. Follows a naming convention (country, format, theme, year, creative type, version) but is treated as a label only.
+      - name: ad_updated_at
+        description: Last time the ad was updated, per the source (UTC). Renamed from ad_detail_updated_at.
