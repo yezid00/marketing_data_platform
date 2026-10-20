@@ -2,6 +2,7 @@ WITH source_data AS (
 
     SELECT * FROM {{ source('facebook_ads', 'facebook_ads_stats') }}
 
+    {{ add_rows_limit() }}
 ),
 
 formatted AS (

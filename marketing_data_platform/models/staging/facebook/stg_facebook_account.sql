@@ -1,6 +1,6 @@
 WITH source_data as (
 
-    SELECT * FROM {{source("facebook_ads","facebook_account")}}
+    SELECT * FROM {{source("facebook_ads","facebook_account")}} {{ add_rows_limit() }}
 ),
 
 
