@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_facebook_ads_daily
+    description: >
+      Facebook ad performance with campaign name and currency attached.
+      One row per ad per day.
+    config:
+      materialized: view
+    columns:
+      - name: ad_id
+        description: Facebook ad ID, stored as a string.
+      - name: report_date
+        description: Date the performance was recorded.
+      - name: campaign_id
+        description: Facebook campaign the ad belongs to.
+      - name: campaign_name
+        description: Campaign name as set in Facebook. A label only.
+      - name: currency_code
+        description: Currency of spend, taken from the ad account.
+      - name: spend
+        description: Amount spent that day, in currency_code.
+      - name: impressions
+        description: Number of times the ad was shown.
+      - name: clicks
+        description: Number of clicks. Null when the source didn't report it.
+      - name: is_clicks_reported
+        description: False when the click count is missing, meaning clicks are unknown for that row.

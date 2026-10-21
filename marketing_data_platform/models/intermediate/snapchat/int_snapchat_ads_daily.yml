@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_snapchat_ads_daily
+    description: >
+      Snapchat ad performance with campaign name attached, summed across
+      countries. One row per ad per day. Country is dropped here so the
+      grain matches Facebook.
+    config:
+      materialized: view
+    columns:
+      - name: ad_id
+        description: Snapchat ad ID (UUID).
+      - name: report_date
+        description: Date the performance was recorded.
+      - name: campaign_id
+        description: Snapchat campaign, reached through the ad group.
+      - name: campaign_name
+        description: Campaign name as set in Snapchat. A label only.
+      - name: currency_code
+        description: Currency of spend, taken from the stats row.
+      - name: spend
+        description: Amount spent that day across all countries, in currency_code.
+      - name: impressions
+        description: Number of times the ad was shown, summed across countries.
+      - name: clicks
+        description: Number of clicks, summed across countries. Understated if any country's count was missing.
+      - name: is_clicks_reported
+        description: False if any country's click count behind this row was missing, meaning clicks may be understated.

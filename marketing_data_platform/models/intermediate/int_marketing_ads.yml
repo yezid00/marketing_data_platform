@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_marketing_ads
+    description: >
+      Facebook and Snapchat ad performance in one structure.
+      One row per platform, per ad, per day.
+    config:
+      materialized: view
+    columns:
+      - name: ad_daily_key
+        description: Surrogate key built from platform, ad_id and report_date. Primary key.
+      - name: platform
+        description: Advertising platform, 'facebook' or 'snapchat'.
+      - name: ad_id
+        description: Platform-specific ad ID, stored as a string. Only unique within a platform.
+      - name: report_date
+        description: Date the performance was recorded.
+      - name: campaign_id
+        description: Platform-specific campaign ID.
+      - name: campaign_name
+        description: Campaign name as set on the platform. A label only.
+      - name: currency_code
+        description: Currency of spend. Don't sum spend across currencies.
+      - name: spend
+        description: Amount spent that day, in currency_code.
+      - name: impressions
+        description: Number of times the ad was shown.
+      - name: clicks
+        description: Number of clicks. Null when the source didn't report it.
+      - name: is_clicks_reported
+        description: False if any click count behind this row was missing, meaning clicks may be understated.
