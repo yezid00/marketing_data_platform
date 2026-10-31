@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_campaign
+    description: >
+      Campaigns across Facebook and Snapchat. One row per platform, per
+      campaign. Only campaigns that have performance rows appear here.
+    columns:
+      - name: campaign_key
+        description: Surrogate key built from platform and campaign_id. Primary key.
+      - name: platform
+        description: Advertising platform, 'facebook' or 'snapchat'.
+      - name: campaign_id
+        description: Platform-specific campaign ID. Only unique within a platform.
+      - name: campaign_name
+        description: Campaign name as set on the platform. A label only.
