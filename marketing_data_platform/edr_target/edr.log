@@ -1,0 +1,186 @@
+2026-10-31 23:06:32 — INFO — Running with edr=0.26.1
+2026-10-31 23:06:35 — DEBUG — profiles.yml not found at C:\Users\Yezid\.dbt\profiles.yml
+2026-10-31 23:06:35 — INFO — Installing packages for edr internal dbt package...
+2026-10-31 23:06:35 — INFO — Running dbt command --log-format json deps --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project
+2026-10-31 23:06:42 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project
+[31;20m2026-10-31 23:06:44 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Runtime Error
+  Could not find profile named 'elementary'[0m
+2026-10-31 23:06:44 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project
+2026-10-31 23:06:45 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\data_monitoring\data_monitoring.py", line 139, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "elementary_cli.get_adapter_type_and_unique_id", quiet=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )[0]
+    ^
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+        command_args=command_args,
+    ...<2 lines>...
+        log_output=log_output,
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dbt_command_args=dbt_command_args,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        log_format=log_format,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 440, in iter
+    result = action(retry_state)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Yezid\anaconda3\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Yezid\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+        dbt_command_args,
+    ...<2 lines>...
+        log_format=log_format,
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+    ...<3 lines>...
+    )
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Runtime Error
+  Could not find profile named 'elementary'
+2026-10-31 23:06:45 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project
+[31;20m2026-10-31 23:06:46 — ERROR — Failed to parse Elementary's database and schema.[0m
+2026-10-31 23:06:46 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project
+[31;20m2026-10-31 23:06:47 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Runtime Error
+  Could not find profile named 'elementary'
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\api\report\report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+        dbt_runner=self.dbt_runner,
+    ...<3 lines>...
+        skip_test_result_rows=skip_test_result_rows,
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\api\tests\tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        days_back=days_back,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        skip_test_result_rows=skip_test_result_rows,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\api\tests\tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        days_back=days_back,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        skip_test_result_rows=skip_test_result_rows,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\fetchers\tests\tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+        macro_name="elementary_cli.get_test_results",
+    ...<5 lines>...
+        ),
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+        command_args=command_args,
+    ...<2 lines>...
+        log_output=log_output,
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dbt_command_args=dbt_command_args,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        log_format=log_format,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 440, in iter
+    result = action(retry_state)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Yezid\anaconda3\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Yezid\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\tenacity\__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+        dbt_command_args,
+    ...<2 lines>...
+        log_format=log_format,
+    )
+  File "C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\clients\dbt\api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+    ...<3 lines>...
+    )
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Runtime Error
+  Could not find profile named 'elementary'
+2026-10-31 23:12:21 — INFO — Running with edr=0.26.1
+2026-10-31 23:12:24 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-31 23:12:24 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:12:47 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 3262
+2026-10-31 23:12:47 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:12:49 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 518
+2026-10-31 23:12:49 — INFO — edr (0.26.1) and Elementary's dbt package (0.26.1) are compatible.
+2026-10-31 23:12:49 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:12:51 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 478
+2026-10-31 23:12:51 — INFO — Elementary's database and schema: 'bronze_staging.marketing_ads_staging'
+2026-10-31 23:12:51 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:12:59 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 227014
+2026-10-31 23:12:59 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:04 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 402
+2026-10-31 23:13:04 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:08 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 402
+2026-10-31 23:13:08 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:13 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 402
+2026-10-31 23:13:13 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 19382
+2026-10-31 23:13:18 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:23 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 11024
+2026-10-31 23:13:23 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:31 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 402
+2026-10-31 23:13:31 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:35 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 402
+2026-10-31 23:13:35 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:40 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 37608
+2026-10-31 23:13:40 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:45 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 2200
+2026-10-31 23:13:45 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:51 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 86534
+2026-10-31 23:13:51 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:13:58 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 10328
+2026-10-31 23:13:58 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:14:03 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 10954
+2026-10-31 23:14:03 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform
+2026-10-31 23:14:11 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\.venv\Lib\site-packages\elementary\monitor\dbt_project --profiles-dir C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\marketing_data_platform' is 1572
