@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: fct_marketing_spend
+    description: >
+      Daily advertising performance across Facebook and Snapchat.
+      One row per platform, per ad, per day. Spend is in the row's own
+      currency, so group by currency_code before summing spend.
+    columns:
+      - name: ad_daily_key
+        description: Surrogate key built from platform, ad_id and report_date. Primary key.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_key
+        description: Foreign key to dim_campaign.
+        data_tests:
+          - not_null :
+              config:
+                severity: warn
+          - relationships:
+              arguments:
+                to: ref('dim_campaign')
+                field: campaign_key
+      - name: platform
+        description: Advertising platform, 'facebook' or 'snapchat'.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['facebook','snapchat']
+      - name: report_date
+        description: Date the performance was recorded.
+      - name: ad_id
+        description: Platform-specific ad ID. Only unique within a platform.
+      - name: campaign_id
+        description: Platform-specific campaign ID.
+      - name: campaign_name
+        description: Campaign name, repeated from dim_campaign for convenience.
+      - name: currency_code
+        description: Currency of spend (USD or EUR). Never sum spend across currencies.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['USD','EUR']
+          - not_null: 
+              config:
+                severity: warn
+      - name: spend
+        description: Amount spent that day, in currency_code.
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+      - name: impressions
+        description: Number of times the ad was shown.
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+      - name: clicks
+        description: Number of clicks. Null when the source didn't report it.
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+      - name: is_clicks_reported
+        description: False if any click count behind this row was missing, meaning clicks may be understated.
+      - name: ctr
+        description: Click-through rate, clicks / impressions. Null when impressions are 0 or missing, or clicks weren't reported.
+      - name: cpc
+        description: Cost per click, spend / clicks, in currency_code. Null when clicks are 0 or missing.
+      - name: cpm
+        description: Cost per 1,000 impressions, spend / impressions x 1000, in currency_code. Null when impressions are 0 or missing.

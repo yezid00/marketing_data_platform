@@ -8,6 +8,9 @@ models:
     columns:
       - name: ad_group_id
         description: Snapchat ad group ID (UUID). Primary key. Joins to stg_snapchat_ad_history.
+        data_tests:
+          - unique
+          - not_null
       - name: campaign_id
         description: Campaign the ad group belongs to. Joins to stg_snapchat_ads_campaign.
       - name: ad_group_name

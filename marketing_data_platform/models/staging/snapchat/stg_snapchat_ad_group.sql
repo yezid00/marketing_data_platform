@@ -15,4 +15,9 @@ formatted AS (
 
 )
 
-SELECT * FROM formatted
+SELECT *
+FROM formatted
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY ad_group_id
+    ORDER BY ad_group_updated_at DESC
+) = 1

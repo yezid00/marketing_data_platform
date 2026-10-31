@@ -25,3 +25,18 @@ Happy modeling!
 [0m21:29:03.483842 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317AE3950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317ABD130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E317AD6360>]}
 [0m21:29:03.484427 [debug] [MainThread]: Flushing usage events
 [0m21:29:04.547543 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:00:21.164381 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB6412510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB8A9FED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB8A9F9D0>]}
+
+
+============================== 01:00:21.183110 | 9c2a7877-bae7-430f-8967-9a05f61df46a ==============================
+[0m01:00:21.183110 [info ] [MainThread]: Running with dbt=1.12.5
+[0m01:00:21.184837 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Yezid\\.dbt', 'invocation_command': 'dbt build --select +fct_marketing_spend +dim_campaign', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m01:00:21.186454 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\Yezid\Desktop\CDE\dbt\marketing_data_platform\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:00:21.188828 [debug] [MainThread]: Command `dbt build` failed at 01:00:21.188593 after 0.20 seconds
+[0m01:00:21.189509 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB8AAE060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB8A2AC30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022AB8B18380>]}
+[0m01:00:21.190214 [debug] [MainThread]: Flushing usage events
+[0m01:00:22.646889 [debug] [MainThread]: An error was encountered while trying to flush usage events
