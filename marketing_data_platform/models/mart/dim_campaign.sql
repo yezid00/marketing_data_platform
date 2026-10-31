@@ -1,7 +1,7 @@
 WITH campaigns AS (
 
     SELECT DISTINCT platform,campaign_id,campaign_name
-    FROM {{ ref ('int_marketting_ads') }}
+    FROM {{ ref ('int_marketing_ads') }}
 
     WHERE campaign_id IS NOT NULL
 )
